@@ -50,6 +50,17 @@ RAILS_ENV=production
 COOKIE_SECRET=super-secret
 ```
 
+## Usage as Binary
+
+```bash
+curl -L https://github.com/alexions/ssm-env/releases/download/v0.0.2/ssm-env > /usr/local/bin/ssm-env && \
+      cd /usr/local/bin && \
+      echo 68bffeb102227f374f46c12457e0a33a ssm-env | md5sum -c && \
+      chmod +x ssm-env
+
+ssm-env
+```
+
 ## Usage with Docker
 
 A common use case is to use `ssm-env` as a Docker ENTRYPOINT. You can copy and paste the following into the top of a Dockerfile:
