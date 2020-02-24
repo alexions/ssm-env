@@ -48,7 +48,15 @@ func getSSMParams(client ssmClient, names []*string, decrypt bool, nofail bool) 
 	values := make(map[string]string)
 
 	for _, p := range resp.Parameters {
-		values[*p.Name] = *p.Value
+		var name string
+
+		// Process variable versioning
+		if p.Selector != nil {
+			name = *p.Name + *p.Selector
+		} else {
+			name = *p.Name
+		}
+		values[name] = *p.Value
 	}
 
 	return values, nil
