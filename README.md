@@ -55,9 +55,9 @@ COOKIE_SECRET=super-secret
 A common use case is to use `ssm-env` as a Docker ENTRYPOINT. You can copy and paste the following into the top of a Dockerfile:
 
 ```dockerfile
-RUN curl -L https://github.com/alexions/ssm-env/releases/download/v0.0.4/ssm-env > /usr/local/bin/ssm-env && \
+RUN curl -L https://github.com/alexions/ssm-env/releases/download/v0.0.1/ssm-env > /usr/local/bin/ssm-env && \
       cd /usr/local/bin && \
-      echo 4a5140b04f8b3f84d16a93540daa7bbd ssm-env | md5sum -c && \
+      echo 0cc72bc87d9e7a24a8556a46b83df02e ssm-env | md5sum -c && \
       chmod +x ssm-env
 ENTRYPOINT ["/usr/local/bin/ssm-env", "-with-decryption"]
 ```
@@ -75,7 +75,7 @@ FROM alpine:latest
 # ...copy code
 
 # ssm-env: See https://github.com/alexions/ssm-env
-RUN wget -O /usr/local/bin/ssm-env https://github.com/alexions/ssm-env/releases/download/v0.0.3/ssm-env
+RUN wget -O /usr/local/bin/ssm-env https://github.com/alexions/ssm-env/releases/download/v0.0.1/ssm-env
 RUN chmod +x /usr/local/bin/ssm-env
 
 # Alpine Linux doesn't include root certificates which ssm-env needs to talk to AWS.
