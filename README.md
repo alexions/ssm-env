@@ -55,7 +55,7 @@ COOKIE_SECRET=super-secret
 A common use case is to use `ssm-env` as a Docker ENTRYPOINT. You can copy and paste the following into the top of a Dockerfile:
 
 ```dockerfile
-RUN curl -L https://github.com/alexions/ssm-env/releases/download/v0.0.1/ssm-env > /usr/local/bin/ssm-env && \
+RUN curl -L https://github.com/alexions/ssm-env/releases/download/v0.0.2/ssm-env > /usr/local/bin/ssm-env && \
       cd /usr/local/bin && \
       echo 0cc72bc87d9e7a24a8556a46b83df02e ssm-env | md5sum -c && \
       chmod +x ssm-env
@@ -75,7 +75,7 @@ FROM alpine:latest
 # ...copy code
 
 # ssm-env: See https://github.com/alexions/ssm-env
-RUN wget -O /usr/local/bin/ssm-env https://github.com/alexions/ssm-env/releases/download/v0.0.1/ssm-env
+RUN wget -O /usr/local/bin/ssm-env https://github.com/alexions/ssm-env/releases/download/v0.0.2/ssm-env
 RUN chmod +x /usr/local/bin/ssm-env
 
 # Alpine Linux doesn't include root certificates which ssm-env needs to talk to AWS.
@@ -90,7 +90,7 @@ ENTRYPOINT ["/usr/local/bin/ssm-env", "-with-decryption"]
 Use the pre-built docker image to run ssm-env. For example, getting a single variable:
 
 ```bash
-docker run -e PASS=ssm:///secret-pass alexions/ssm-env:0.0.1 -with-decryption sh -c "echo \$PASS"
+docker run -e PASS=ssm:///secret-pass alexions/ssm-env:0.0.2 -with-decryption sh -c "echo \$PASS"
 helloWorld123
 ```
 
