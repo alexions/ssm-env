@@ -90,7 +90,7 @@ ENTRYPOINT ["/usr/local/bin/ssm-env", "-with-decryption"]
 Use the pre-built docker image to run ssm-env. For example, getting a single variable:
 
 ```bash
-docker run -e PASS=ssm:///secret-pass alexions/ssm-env:0.0.1-beta -with-decryption sh -c "echo \$PASS"
+docker run -e PASS=ssm:///secret-pass alexions/ssm-env:0.0.1 -with-decryption sh -c "echo \$PASS"
 helloWorld123
 ```
 

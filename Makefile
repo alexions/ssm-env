@@ -1,7 +1,7 @@
 .PHONY: test image bin/ssm-env
 
 IMAGE_NAME ?= ssm-env
-VERSION ?= 0.0.1-beta
+VERSION ?= 0.0.1
 
 bin/ssm-env: *.go
 	go build -o $@ .
